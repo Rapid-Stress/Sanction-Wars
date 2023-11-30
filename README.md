@@ -1,5 +1,5 @@
 # Sanction-Wars
-**A small java game project
+**A small java game project**
 
 This is a small 2D pixel-art slit-controller multiplayer(hopfully) singleplayer(campaign/AI Battle) fighting game.
 Inspired by Tekken, Mortal Kombat, Shadow Fight 2 (android)
