@@ -9,10 +9,10 @@ public class BoxCollider extends Collider
 	{
 		super(bounds, new Vec2[]
 				{
-						bounds.pos.copy(),
-						new Vec2(bounds.pos.x + bounds.size.x, bounds.pos.y),
-						new Vec2(bounds.pos.x, bounds.pos.y + bounds.size.y),
-						Vec2.Add(bounds.pos, bounds.size)
+						new Vec2(bounds.x, bounds.y),
+						new Vec2(bounds.x + bounds.width, bounds.y),
+						new Vec2(bounds.x, bounds.y + bounds.height),
+						new Vec2(bounds.x + bounds.width, bounds.y + bounds.height),
 				});
 	}
 	
@@ -44,9 +44,9 @@ public class BoxCollider extends Collider
 	{
 		bounds.update(newBounds);
 		
-		points[0].update(bounds.pos);
-		points[1].update(bounds.pos.x + bounds.size.x, bounds.pos.y);
-		points[2].update(bounds.pos.x, bounds.pos.y + bounds.size.y);
-		points[3].update(bounds.pos.x + bounds.size.x, bounds.pos.y + bounds.size.y);
+		points[0].update(bounds.x, bounds.y);
+		points[1].update(bounds.x + bounds.width, bounds.y);
+		points[2].update(bounds.x, bounds.y + bounds.height);
+		points[3].update(bounds.x + bounds.width, bounds.y + bounds.height);
 	}
 }

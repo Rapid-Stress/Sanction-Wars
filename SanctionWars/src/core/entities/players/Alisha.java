@@ -7,7 +7,7 @@ import core.utils.AssetLoader;
 
 public class Alisha extends Player 
 {
-    private static final Rect COLLIDER_BOUNDS = new Rect(new Vec2(128, 120), new Vec2(150, 180));
+    private static final Rect COLLIDER_BOUNDS = new Rect(128, 120, 150, 180);
     
     public Alisha(PlayerKeybinds keybinds, Rect bounds, float speed, boolean flipped)
     {

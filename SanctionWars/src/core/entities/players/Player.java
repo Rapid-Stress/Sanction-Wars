@@ -111,10 +111,10 @@ public abstract class Player extends Entity
 		Animation currentAnimation = (currentAttackAnimation != null) ? currentAttackAnimation : currentMovementAnimation;
 		BufferedImage texture = (!flipped) ? currentAnimation.getFrame().getTexture() : currentAnimation.getFrame().getXFlippedTexture();
 		
-		int x = (int) bounds.pos.x;
-		int y = (int) bounds.pos.y;
-		int width = (int) bounds.size.x;
-		int height = (int) bounds.size.y;
+		int x = (int) bounds.x;
+		int y = (int) bounds.y;
+		int width = (int) bounds.width;
+		int height = (int) bounds.height;
 		
 		g.drawImage(texture, x, y, width, height, null);
 	}

@@ -73,7 +73,8 @@ public class UITab extends UIElement
 		if (dragging)
 		{
 			Vec2 mouseDelta = Vec2.Sub(mousePos, prevMousePos);
-			bounds.pos.add(mouseDelta);
+			bounds.x += mouseDelta.x;
+			bounds.y += mouseDelta.y;
 		}
 	}
 	
@@ -91,31 +92,35 @@ public class UITab extends UIElement
 		if (scaling)
 		{
 			Vec2 mouseDelta = Vec2.Sub(mousePos, prevMousePos);
-			bounds.size.add(mouseDelta);
+			bounds.width += mouseDelta.x;
+			bounds.height += mouseDelta.y;;
 		}
 	}
 	
 	public void updateTabPos()
 	{
-		titleBarBounds.pos.update(bounds.pos);
-		titleBarBounds.size.x = bounds.size.x;
-		scaleHandleBounds.pos.update(Vec2.Sub(Vec2.Add(bounds.pos, bounds.size), scaleHandleBounds.size).sub(Vec2.One().mult(scaleHandleSpacing)));
+		titleBarBounds.update(bounds.x, bounds.y, titleBarBounds.width, titleBarBounds.height);
+		titleBarBounds.width = bounds.width;
+		
+		Vec2 scaleHandlePos = new Vec2((bounds.x + bounds.width) - scaleHandleBounds.width - scaleHandleSpacing,
+									   (bounds.y + bounds.height) - scaleHandleBounds.height - scaleHandleSpacing);
+		scaleHandleBounds.update(scaleHandlePos.x, scaleHandlePos.y, scaleHandleBounds.width, scaleHandleBounds.height);
 	}
 	
 	@Override
 	public void render(Graphics2D g)
 	{
 		g.setColor(baseColor);
-		g.fillRect((int) bounds.pos.x, (int) bounds.pos.y, (int) bounds.size.x, (int) bounds.size.y);
+		g.fillRect((int) bounds.x, (int) bounds.y, (int) bounds.width, (int) bounds.height);
 		
 		g.setColor(titleBarColor);
-		g.fillRect((int) titleBarBounds.pos.x, (int) titleBarBounds.pos.y, (int) titleBarBounds.size.x, (int) titleBarBounds.size.y);
+		g.fillRect((int) titleBarBounds.x, (int) titleBarBounds.y, (int) titleBarBounds.width, (int) titleBarBounds.height);
 		
 		g.setColor(accentColor);
-		g.fillRect((int) scaleHandleBounds.pos.x, (int) scaleHandleBounds.pos.y, (int) scaleHandleBounds.size.x, (int) scaleHandleBounds.size.y);
+		g.fillRect((int) scaleHandleBounds.x, (int) scaleHandleBounds.y, (int) scaleHandleBounds.width, (int) scaleHandleBounds.height);
 		
 		g.setStroke(new BasicStroke(outlineThickness));
-		g.drawRect((int) bounds.pos.x, (int) bounds.pos.y, (int) bounds.size.x, (int) bounds.size.y);
+		g.drawRect((int) bounds.x, (int) bounds.y, (int) bounds.width, (int) bounds.height);
 		
 		super.render(g);
 	}

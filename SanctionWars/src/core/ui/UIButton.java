@@ -26,7 +26,10 @@ public class UIButton extends UIElement
 	public void update()
 	{
 		if (getParent() != null)
-			bounds.pos = Vec2.Add(getParent().bounds.pos, offsetFromParent);
+		{
+			bounds.x -= (getParent().bounds.x + offsetFromParent.x);
+			bounds.y -= (getParent().bounds.y + offsetFromParent.y);
+		}
 		
 		super.update();
 	}
@@ -35,11 +38,11 @@ public class UIButton extends UIElement
 	public void render(Graphics2D g)
 	{
 		g.setColor(baseColor);
-		g.fillRect((int) bounds.pos.x, (int) bounds.pos.y, (int) bounds.size.x, (int) bounds.size.y);
+		g.fillRect((int) bounds.x, (int) bounds.y, (int) bounds.width, (int) bounds.height);
 		
 		g.setColor(accentColor);
 		g.setStroke(new BasicStroke(outlineThickness));
-		g.drawRect((int) bounds.pos.x, (int) bounds.pos.y, (int) bounds.size.x, (int) bounds.size.y);
+		g.drawRect((int) bounds.x, (int) bounds.y, (int) bounds.width, (int) bounds.height);
 		
 		super.render(g);
 	}
@@ -47,6 +50,6 @@ public class UIButton extends UIElement
 	@Override
 	protected void onParentChanged()
 	{
-		offsetFromParent = Vec2.Sub(bounds.pos, getParent().bounds.pos);
+		offsetFromParent = new Vec2(bounds.x - getParent().bounds.x, bounds.y - getParent().bounds.y);
 	}
 }

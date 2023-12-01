@@ -6,7 +6,6 @@ import core.graphics.window.Window;
 import core.input.KeyboardManager;
 import core.staticobjects.Background;
 import core.ui.layers.UIFightHUDLayer;
-import core.ui.layers.UIObjectEditorLayer;
 import core.ui.managers.UIManager;
 
 public class Game

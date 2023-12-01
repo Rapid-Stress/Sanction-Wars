@@ -2,7 +2,6 @@ package editor;
 
 import core.graphics.window.EditorWindowLayer;
 import core.graphics.window.Window;
-import core.ui.layers.UIObjectEditorLayer;
 import core.ui.managers.UIManager;
 
 public class Editor
@@ -22,7 +21,6 @@ public class Editor
 		window.setResizable(true);
 		
 		uiManager = new UIManager();
-		uiManager.addChildElement(new UIObjectEditorLayer());
 		
 		running = true;
 	}

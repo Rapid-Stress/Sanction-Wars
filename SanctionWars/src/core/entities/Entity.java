@@ -19,12 +19,12 @@ public abstract class Entity
 	
 	public Entity(Rect bounds, Rect colliderBounds, float speed, boolean flipped)
 	{
-		this.bounds = new Rect(new Vec2
-									   (bounds.pos.x - (int) (bounds.size.x / 2.0f),
-										bounds.pos.y - (int) (bounds.size.y / 2.0f)),
-							   new Vec2(bounds.size.x, bounds.size.y));
+		this.bounds = new Rect(bounds.x - (int) (bounds.width / 2.0f),
+							   bounds.y - (int) (bounds.height / 2.0f),
+							   bounds.width, bounds.height);
 		
-		this.colliderBounds = new Rect(Vec2.Add(this.bounds.pos, colliderBounds.pos), colliderBounds.size);
+		this.colliderBounds = new Rect(this.bounds.x + colliderBounds.x, this.bounds.y + colliderBounds.y,
+									   colliderBounds.width, colliderBounds.height);
 		this.collider = new BoxCollider(this.colliderBounds);
 		
 		this.speed = speed;
@@ -36,19 +36,19 @@ public abstract class Entity
 		if (moveDir == 0)
 			return;
 		
-		Vec2 move = new Vec2(moveDir * speed, 0);
+		float move = moveDir * speed;
 		
-		Vec2 prevPos = colliderBounds.pos;
-		colliderBounds.pos = Vec2.Add(colliderBounds.pos, move);
+		float prevX = colliderBounds.x;
+		colliderBounds.x += move;
 		
 		boolean colliding = detectCollision();
 		
-		colliderBounds.pos = prevPos;
+		colliderBounds.x = prevX;
 		
 		if (!colliding)
 		{
-			bounds.pos.add(move);
-			colliderBounds.pos.add(move);
+			bounds.x += move;
+			colliderBounds.x += move;
 			
 			collider.update(colliderBounds);
 		}
@@ -78,34 +78,4 @@ public abstract class Entity
 	public abstract void update();
 	
 	public abstract void render(Graphics2D g);
-	
-	public void setPosition(Vec2 newPos)
-	{
-		bounds.pos = newPos;
-	}
-	
-	public void setSize(Vec2 newSize)
-	{
-		bounds.size = newSize;
-	}
-	
-	public void setSpeed(float newSpeed)
-	{
-		speed = newSpeed;
-	}
-	
-	public Vec2 getPosition()
-	{
-		return bounds.pos;
-	}
-	
-	public Vec2 getSize()
-	{
-		return bounds.size;
-	}
-	
-	public float getSpeed()
-	{
-		return speed;
-	}
 }

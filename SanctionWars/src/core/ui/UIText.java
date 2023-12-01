@@ -27,8 +27,8 @@ public class UIText extends UIElement
 	{
 		if (getParent() != null)
 		{
-			bounds.pos = Vec2.Add(getParent().bounds.pos, offsetFromParent);
-			//bounds.size.update(getParent().bounds.size);
+			bounds.x += getParent().bounds.x + offsetFromParent.x;
+			bounds.y += getParent().bounds.y + offsetFromParent.y;
 		}
 		
 		super.update();
@@ -42,8 +42,8 @@ public class UIText extends UIElement
 		float xPos;
 		float yPos;
 		
-		yPos = (bounds.pos.y + (fontSize / 2.0f) / 2.0f) + (bounds.size.y / 2.0f);
-		xPos = (bounds.pos.x - (textWidth / 1.5f) + (bounds.size.x / 2.0f));
+		yPos = (bounds.y + (fontSize / 2.0f) / 2.0f) + (bounds.height / 2.0f);
+		xPos = (bounds.x - (textWidth / 1.5f) + (bounds.width / 2.0f));
 		
 		g.setColor(textColor);
 		g.setFont(new Font(Font.SANS_SERIF, Font.BOLD, fontSize));
@@ -55,6 +55,6 @@ public class UIText extends UIElement
 	@Override
 	protected void onParentChanged()
 	{
-		offsetFromParent = Vec2.Sub(bounds.pos, getParent().bounds.pos);
+		offsetFromParent = new Vec2(bounds.x + getParent().bounds.x, bounds.y + getParent().bounds.y);
 	}
 }

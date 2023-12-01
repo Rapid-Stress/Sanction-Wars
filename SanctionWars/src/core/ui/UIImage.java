@@ -22,11 +22,11 @@ public class UIImage extends UIElement
 	public void render(Graphics2D g)
 	{
 		g.setColor(baseColor);
-		g.fillRect((int) bounds.pos.x, (int) bounds.pos.y, (int) bounds.size.x, (int) bounds.size.y);
+		g.fillRect((int) bounds.x, (int) bounds.y, (int) bounds.width, (int) bounds.height);
 		
 		g.setColor(outlineColor);
 		g.setStroke(new BasicStroke(outlineThickness));
-		g.drawRect((int) bounds.pos.x, (int) bounds.pos.y, (int) bounds.size.x, (int) bounds.size.y);
+		g.drawRect((int) bounds.x, (int) bounds.y, (int) bounds.width, (int) bounds.height);
 		
 		super.render(g);
 	}

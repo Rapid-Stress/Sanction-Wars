@@ -2,35 +2,51 @@ package core.math;
 
 public class Rect
 {
-	public Vec2 pos;
-	public Vec2 size;
+	public float x;
+	public float y;
+	public float width;
+	public float height;
 	
-	public Rect(Vec2 pos, Vec2 size)
+	public Rect(float x, float y, float width, float height)
 	{
-		this.pos = pos;
-		this.size = size;
+		this.x = x;
+		this.y = y;
+		this.width = width;
+		this.height = height;
 	}
 	
 	public static boolean ContainsPoint(Rect rect, Vec2 point)
 	{
-		return point.x >= rect.pos.x && point.x <= rect.pos.x + rect.size.x && point.y >= rect.pos.y && point.y <= rect.pos.y + rect.size.y;
+		return point.x >= rect.x && point.x <= rect.x + rect.width && point.y >= rect.y && point.y <= rect.y + rect.height;
 	}
 	
 	public boolean containsPoint(Vec2 point)
 	{
-		return point.x >= pos.x && point.x <= pos.x + size.x && point.y >= pos.y && point.y <= pos.y + size.y;
-	}
-	
-	public String toString()
-	{
-		return "Pos: " + pos + ", Size: " + size;
+		return point.x >= x && point.x <= x + width && point.y >= y && point.y <= y + height;
 	}
 	
 	public Rect update(Rect other)
 	{
-		pos.update(other.pos);
-		size.update(other.size);
+		x = other.x;
+		y = other.y;
+		width = other.width;
+		height = other.height;
 		
 		return this;
+	}
+	
+	public Rect update(float x, float y, float width, float height)
+	{
+		this.x = x;
+		this.y = y;
+		this.width = width;
+		this.height = height;
+		
+		return this;
+	}
+	
+	public String toString()
+	{
+		return "X: " + x + ", Y: " + y + ", Width: " + width + ", Height: " + height;
 	}
 }

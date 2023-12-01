@@ -10,13 +10,12 @@ import core.input.keybinds.Player.PlayerOneKeybinds;
 import core.input.keybinds.Player.PlayerTwoKeybinds;
 import core.entities.players.*;
 import core.math.Rect;
-import core.math.Vec2;
 
 public class EntityManager 
 {
-	private static final Vec2 ENTITY_SIZE = new Vec2(400, 400);
-	private static final Rect PLAYER_ONE_BOUNDS = new Rect(new Vec2(800, 670), ENTITY_SIZE);
-	private static final Rect PLAYER_TWO_BOUNDS = new Rect(new Vec2(1120, 670), ENTITY_SIZE);
+	private static final float ENTITY_SIZE = 400;
+	private static final Rect PLAYER_ONE_BOUNDS = new Rect(800, 670, ENTITY_SIZE, ENTITY_SIZE);
+	private static final Rect PLAYER_TWO_BOUNDS = new Rect(1120, 670, ENTITY_SIZE, ENTITY_SIZE);
 	
 	private static final PlayerKeybinds PLAYER_ONE_KEYBINDS = new PlayerOneKeybinds();
 	private static final PlayerKeybinds PLAYER_TWO_KEYBINDS = new PlayerTwoKeybinds();
