@@ -1,9 +1,9 @@
-package core.graphics.animation;
+package core.graphics.rendering.animation;
 
 import core.event.Event;
-import core.event.EventArgs.EventArgs;
-import core.graphics.Sprite;
-import core.graphics.SpriteSheet;
+import core.event.eventargs.EventArgs;
+import core.graphics.rendering.Sprite;
+import core.graphics.rendering.SpriteSheet;
 
 public class Animation 
 {

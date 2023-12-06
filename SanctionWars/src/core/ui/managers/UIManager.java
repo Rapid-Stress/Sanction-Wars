@@ -8,6 +8,8 @@ import core.ui.UIElement;
 
 public class UIManager extends UIElement
 {
+	public static final UIManager Instance = new UIManager();
+	
 	public static final Color EDITOR_PRIMARY_COLOR = new Color(42, 42, 42);
 	public static final Color EDITOR_SECONDARY_COLOR = new Color(84, 84, 84);
 	public static final Color EDITOR_POP_COLOR = new Color(200, 82, 82);

@@ -1,16 +1,14 @@
-package core.graphics.window;
+package core.graphics.rendering.window;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.Serial;
-import java.util.ArrayList;
-import java.util.List;
 
-import core.Game;
 import core.entities.Entity;
 import core.entities.manager.EntityManager;
-import core.staticobjects.Background;
+import core.graphics.vfx.particlesystems.ParticleSystem;
+import core.staticobjects.Backgrounds;
 import core.ui.managers.UIManager;
 
 public class GameWindowLayer extends WindowLayer
@@ -27,25 +25,15 @@ public class GameWindowLayer extends WindowLayer
 		BufferedImage renderTexture = new BufferedImage(Window.RENDER_WIDTH, Window.RENDER_HEIGHT, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D renderGraphics = renderTexture.createGraphics();
 		
-		Background bg = Game.Instance.getBackground();
+		Backgrounds.GetBackground().render(renderGraphics);
 		
-		if (bg != null)
-			bg.render(renderGraphics);
+		for (Entity entity : EntityManager.Instance.getEntities())
+			entity.render(renderGraphics);
 		
-		EntityManager entityManager = Game.Instance.getEntityManager();
+		ParticleSystem.Render(renderGraphics);
 		
-		if (entityManager != null)
-		{
-			List<Entity> entities = entityManager.getEntities();
-			
-			for (Entity entity : entities)
-				entity.render(renderGraphics);
-		}
-		
-		UIManager uiManager = Game.Instance.getUIManager();
-		
-		if (uiManager != null)
-			uiManager.render(renderGraphics);
+		UIManager uiManager = UIManager.Instance;
+		uiManager.render(renderGraphics);
 		
 		screenGraphics.drawImage(renderTexture, 0, 0, (int)screenSize.x, (int)screenSize.y, null);
 	}

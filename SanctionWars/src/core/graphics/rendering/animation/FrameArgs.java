@@ -1,4 +1,4 @@
-package core.graphics.animation;
+package core.graphics.rendering.animation;
 
 public class FrameArgs
 {

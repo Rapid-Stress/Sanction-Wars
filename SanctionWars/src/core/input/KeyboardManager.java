@@ -1,7 +1,7 @@
 package core.input;
 
 import core.event.Event;
-import core.event.EventArgs.EventArgs;
+import core.event.eventargs.EventArgs;
 import core.event.EventListener;
 
 import java.awt.event.KeyEvent;

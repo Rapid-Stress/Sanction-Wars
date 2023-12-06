@@ -11,9 +11,9 @@ import java.util.concurrent.CompletableFuture;
 
 import javax.imageio.ImageIO;
 
-import core.graphics.animation.Animation;
-import core.graphics.animation.AnimationArgs;
-import core.graphics.animation.FrameArgs;
+import core.graphics.rendering.animation.Animation;
+import core.graphics.rendering.animation.AnimationArgs;
+import core.graphics.rendering.animation.FrameArgs;
 
 public class AssetLoader
 {

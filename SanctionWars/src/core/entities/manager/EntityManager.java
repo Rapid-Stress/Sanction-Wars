@@ -13,6 +13,8 @@ import core.math.Rect;
 
 public class EntityManager 
 {
+	public static EntityManager Instance;
+	
 	private static final float ENTITY_SIZE = 400;
 	private static final Rect PLAYER_ONE_BOUNDS = new Rect(800, 670, ENTITY_SIZE, ENTITY_SIZE);
 	private static final Rect PLAYER_TWO_BOUNDS = new Rect(1120, 670, ENTITY_SIZE, ENTITY_SIZE);
@@ -24,10 +26,17 @@ public class EntityManager
 	
 	public EntityManager()
 	{
+		Instance = this;
+		
 		entities = Collections.synchronizedList(new ArrayList<>());
 		
 		entities.add(new Alisha(PLAYER_ONE_KEYBINDS, PLAYER_ONE_BOUNDS, 5, false));
 		entities.add(new Alisha(PLAYER_TWO_KEYBINDS, PLAYER_TWO_BOUNDS, 5, true));
+	}
+	
+	public static void Update()
+	{
+		Instance.update();
 	}
 
 	public void update()

@@ -4,11 +4,11 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import core.entities.*;
-import core.event.EventArgs.EventArgsDirection;
+import core.event.eventargs.EventArgsDirection;
 import core.input.keybinds.Player.PlayerKeybinds;
-import core.event.EventArgs.EventArgs;
+import core.event.eventargs.EventArgs;
 import core.event.EventListener;
-import core.graphics.animation.Animation;
+import core.graphics.rendering.animation.Animation;
 import core.math.Rect;
 
 public abstract class Player extends Entity

@@ -1,4 +1,4 @@
-package core.graphics.window;
+package core.graphics.rendering.window;
 
 import java.awt.Graphics;
 import java.io.Serial;

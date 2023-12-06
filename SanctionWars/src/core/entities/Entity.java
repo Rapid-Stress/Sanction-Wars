@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.util.List;
 
 import core.Game;
+import core.entities.manager.EntityManager;
 import core.math.Rect;
 import core.math.Vec2;
 import core.physics.BoxCollider;
@@ -58,7 +59,7 @@ public abstract class Entity
 	{
 		boolean colliding = false;
 		
-		List<Entity> entities = Game.Instance.getEntityManager().getEntities();
+		List<Entity> entities = EntityManager.Instance.getEntities();
 		
 		for (Entity entity : entities)
 		{

@@ -3,7 +3,7 @@ package core.staticobjects;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-import core.graphics.window.Window;
+import core.graphics.rendering.window.Window;
 import core.utils.AssetLoader;
 
 public class Background

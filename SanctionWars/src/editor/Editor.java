@@ -1,7 +1,7 @@
 package editor;
 
-import core.graphics.window.EditorWindowLayer;
-import core.graphics.window.Window;
+import core.graphics.rendering.window.EditorWindowLayer;
+import core.graphics.rendering.window.Window;
 import core.ui.managers.UIManager;
 
 public class Editor

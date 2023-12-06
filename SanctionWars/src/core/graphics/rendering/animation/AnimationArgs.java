@@ -1,4 +1,4 @@
-package core.graphics.animation;
+package core.graphics.rendering.animation;
 
 import java.awt.image.BufferedImage;
 

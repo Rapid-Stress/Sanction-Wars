@@ -1,6 +1,6 @@
 package core.input.keybinds.keyactions;
 
-import core.event.EventArgs.EventArgs;
+import core.event.eventargs.EventArgs;
 import core.event.EventListener;
 import core.input.KeyboardManager;
 

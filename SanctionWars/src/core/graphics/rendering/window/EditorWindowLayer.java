@@ -1,12 +1,10 @@
-package core.graphics.window;
+package core.graphics.rendering.window;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.Serial;
-import java.util.ArrayList;
 
-import core.ui.UIElement;
 import core.ui.managers.UIManager;
 import editor.Editor;
 

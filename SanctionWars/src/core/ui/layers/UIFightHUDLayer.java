@@ -19,6 +19,8 @@ public class UIFightHUDLayer extends UILayer
 	public UIFightHUDLayer()
 	{
 		super(null);
+		
+		UIManager.Instance.addChildElement(this);
 		Instance = this;
 		
 		init();

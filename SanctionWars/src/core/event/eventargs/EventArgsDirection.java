@@ -1,4 +1,4 @@
-package core.event.EventArgs;
+package core.event.eventargs;
 
 public class EventArgsDirection extends EventArgs
 {

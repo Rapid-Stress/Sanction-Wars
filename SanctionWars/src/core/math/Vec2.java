@@ -1,6 +1,8 @@
 package core.math;
 
-import core.graphics.window.Window;
+import core.graphics.rendering.window.Window;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Vec2
 {
@@ -49,6 +51,14 @@ public class Vec2
 		float worldY = (point.y / Window.Instance.getScreenHeight()) * Window.RENDER_HEIGHT;
 		
 		return new Vec2(worldX, worldY);
+	}
+	
+	public static Vec2 RandomVector(Vec2 first, Vec2 second)
+	{
+		float newX = ThreadLocalRandom.current().nextFloat(Math.min(first.x, second.x), Math.max(first.x, second.x) + 0.01f);
+		float newY = ThreadLocalRandom.current().nextFloat(Math.min(first.y, second.y), Math.max(first.y, second.y) + 0.01f);
+		
+		return new Vec2(newX, newY);
 	}
 	
 	public Vec2 copy()

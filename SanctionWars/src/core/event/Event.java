@@ -1,6 +1,6 @@
 package core.event;
 
-import core.event.EventArgs.EventArgs;
+import core.event.eventargs.EventArgs;
 
 import java.util.ArrayList;
 
